@@ -176,7 +176,8 @@ includecapnp_HEADERS =                                         \
   src/capnp/rpc-twoparty.h                                     \
   src/capnp/rpc.capnp.h                                        \
   src/capnp/rpc-twoparty.capnp.h                               \
-  src/capnp/ez-rpc.h
+  src/capnp/ez-rpc.h                                           \
+  src/capnp/json.h
 
 lib_LTLIBRARIES = libkj.la libkj-async.la libcapnp.la libcapnp-rpc.la libcapnpc.la
 
@@ -226,7 +227,8 @@ libcapnp_la_SOURCES=                                           \
   src/capnp/dynamic.c++                                        \
   src/capnp/stringify.c++                                      \
   src/capnp/serialize.c++                                      \
-  src/capnp/serialize-packed.c++
+  src/capnp/serialize-packed.c++                               \
+  src/capnp/json.c++
 
 # -lpthread is here to work around https://bugzilla.redhat.com/show_bug.cgi?id=661333
 libcapnp_rpc_la_LIBADD = libcapnp.la libkj-async.la libkj.la $(PTHREAD_LIBS) -lpthread
@@ -375,6 +377,7 @@ capnp_test_SOURCES =                                           \
   src/capnp/ez-rpc-test.c++                                    \
   src/capnp/test-util.c++                                      \
   src/capnp/test-util.h                                        \
+  src/capnp/json-test.c++                                      \
   src/capnp/compiler/lexer-test.c++                            \
   src/capnp/compiler/md5-test.c++
 nodist_capnp_test_SOURCES = $(test_capnpc_outputs)

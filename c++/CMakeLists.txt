@@ -13,6 +13,7 @@ endif()
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/../cmake)
 list(APPEND CMAKE_CXX_FLAGS "-std=c++11")
+link_libraries(stdc++)
 
 set(VERSION_MAJOR 0)
 set(VERSION_MINOR 5)
@@ -102,6 +103,7 @@ set(capnp_sources
     src/capnp/stringify.c++
     src/capnp/serialize.c++
     src/capnp/serialize-packed.c++
+    src/capnp/json.c++
 )
 
 add_library(capnp ${capnp_sources})
@@ -215,6 +217,7 @@ set(capnp_test_sources
     src/capnp/test-util.c++
     src/capnp/compiler/lexer-test.c++
     src/capnp/compiler/md5-test.c++
+    src/capnp/json-test.c++
 )
 
 install(TARGETS kj kj-async capnp capnp-rpc capnpc capnp-exe capnpc-capnp capnpc-c++
